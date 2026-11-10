@@ -1,0 +1,24 @@
+# Unideals
+
+> Unideals is a campus-only marketplace for college students in India. Students buy and sell second-hand textbooks, electronics, cycles, hostel essentials, clothing, lab equipment and event passes with other students at their own college. There is zero commission: buyers and sellers agree on a price in chat and pay each other directly at pickup on campus.
+
+## Key facts
+
+- Website: https://www.unideals.in (launch page and early-access waitlist)
+- Marketplace web app: https://app.unideals.in
+- Android app: coming soon
+- Audience: college and university students in India
+- Who can trade: students with a verified account; each campus is its own marketplace
+- Fees: free to join and free to list; zero commission on deals. Optional paid plans (Pro, Pro Plus) add more listings and boosts
+- How a deal works: find an item, chat with the seller, make an offer, the seller confirms, pick a pickup spot on campus, pay at pickup
+- Safety: verified students only, automatic message screening, reporting for listings and users, Girls Corner (a private space visible only to verified female students)
+- Made by: Imaginum (https://imaginumorg.vercel.app)
+
+## Links
+
+- [Home and early access](https://www.unideals.in/)
+- [Marketplace](https://app.unideals.in/)
+- [Instagram](https://instagram.com/unideals)
+- [X](https://x.com/unideals)
+- [LinkedIn](https://linkedin.com/company/unideals)
+- [Discord](https://discord.gg/unideals)

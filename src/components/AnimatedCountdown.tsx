@@ -258,9 +258,9 @@ export function AnimatedCountdown({
     [initialStaticTime]
   );
 
-  const [timeLeft, setTimeLeft] = React.useState<TimeLeft>(
-    getTimeLeft(defaultTarget)
-  );
+  // null until mounted: the live time differs between server and browser,
+  // so the first render shows staticTime on both (no hydration mismatch).
+  const [timeLeft, setTimeLeft] = React.useState<TimeLeft | null>(null);
   const mountedRef = React.useRef(false);
   const visibleUnits = useVisibleUnits({
     showDays,
@@ -270,13 +270,14 @@ export function AnimatedCountdown({
     unitOrder,
   });
 
-  const displayTimeLeft = isStatic ? staticTime : timeLeft;
+  const displayTimeLeft = isStatic || !timeLeft ? staticTime : timeLeft;
   const completed = !isStatic && isFinished(displayTimeLeft);
 
   React.useEffect(() => {
     mountedRef.current = true;
     if (isStatic) return;
 
+    setTimeLeft(getTimeLeft(defaultTarget));
     const interval = window.setInterval(() => {
       setTimeLeft(getTimeLeft(defaultTarget));
     }, 1000);
@@ -286,11 +287,11 @@ export function AnimatedCountdown({
 
   React.useEffect(() => {
     if (!mountedRef.current) return;
-    if (!isStatic && isFinished(displayTimeLeft) && !completedRef.current) {
+    if (!isStatic && timeLeft && isFinished(displayTimeLeft) && !completedRef.current) {
       completedRef.current = true;
       onComplete?.();
     }
-  }, [isStatic, displayTimeLeft, onComplete]);
+  }, [isStatic, timeLeft, displayTimeLeft, onComplete]);
 
   return (
     <motion.div

@@ -3,10 +3,18 @@ import path from "path";
 import {
   EMAIL_LOGO_BASE64,
   ICON_IG_BASE64,
-  ICON_DISCORD_BASE64,
   ICON_X_BASE64,
-  ICON_LINKEDIN_BASE64,
+  ICON_YT_BASE64,
 } from "./email-assets";
+
+function escapeHtml(value: string): string {
+  return value
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
 
 export interface EmailOptions {
   email: string;
@@ -53,7 +61,8 @@ export function getWelcomeEmailHtml({
   isBrowserPreview = false,
 }: EmailOptions): string {
   // Format recipient display name
-  const displayName = name && name.trim() ? name.trim() : "there";
+  // Escape user-supplied text so it cannot inject markup into the email
+  const displayName = escapeHtml(name && name.trim() ? name.trim().slice(0, 60) : "there");
 
   // Use inline CIDs for live email delivery, or public paths for browser preview
   const logoSrc = isBrowserPreview
@@ -62,15 +71,12 @@ export function getWelcomeEmailHtml({
   const igSrc = isBrowserPreview
     ? "/social/instagram.png"
     : "cid:icon-ig.png";
-  const discordSrc = isBrowserPreview
-    ? "/social/discord.png"
-    : "cid:icon-discord.png";
   const xSrc = isBrowserPreview
     ? "/social/x.png"
     : "cid:icon-x.png";
-  const inSrc = isBrowserPreview
-    ? "/social/linkedin.png"
-    : "cid:icon-linkedin.png";
+  const ytSrc = isBrowserPreview
+    ? "/social/youtube.png"
+    : "cid:icon-yt.png";
 
   return `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
@@ -165,26 +171,20 @@ export function getWelcomeEmailHtml({
                       <tr>
                         <!-- Instagram -->
                         <td style="padding-right: 12px;">
-                          <a href="https://instagram.com/unideals" target="_blank" style="text-decoration: none; display: inline-block;">
+                          <a href="https://www.instagram.com/unidealsdotin/" target="_blank" style="text-decoration: none; display: inline-block;">
                             <img src="${igSrc}" alt="Instagram" width="22" height="22" style="display: block; width: 22px; height: 22px; border: 0;" />
-                          </a>
-                        </td>
-                        <!-- Discord -->
-                        <td style="padding-right: 12px;">
-                          <a href="https://discord.gg/unideals" target="_blank" style="text-decoration: none; display: inline-block;">
-                            <img src="${discordSrc}" alt="Discord" width="22" height="22" style="display: block; width: 22px; height: 22px; border: 0;" />
                           </a>
                         </td>
                         <!-- X (Twitter) -->
                         <td style="padding-right: 12px;">
-                          <a href="https://x.com/unideals" target="_blank" style="text-decoration: none; display: inline-block;">
+                          <a href="https://x.com/unidealsdotin" target="_blank" style="text-decoration: none; display: inline-block;">
                             <img src="${xSrc}" alt="X" width="22" height="22" style="display: block; width: 22px; height: 22px; border: 0;" />
                           </a>
                         </td>
-                        <!-- LinkedIn -->
+                        <!-- YouTube -->
                         <td style="padding-right: 12px;">
-                          <a href="https://linkedin.com/company/unideals" target="_blank" style="text-decoration: none; display: inline-block;">
-                            <img src="${inSrc}" alt="LinkedIn" width="22" height="22" style="display: block; width: 22px; height: 22px; border: 0;" />
+                          <a href="https://www.youtube.com/@unidealsdotin" target="_blank" style="text-decoration: none; display: inline-block;">
+                            <img src="${ytSrc}" alt="YouTube" width="22" height="22" style="display: block; width: 22px; height: 22px; border: 0;" />
                           </a>
                         </td>
                       </tr>
@@ -303,16 +303,12 @@ export async function addContactAndSendWelcome({
       content: ICON_IG_BASE64,
     },
     {
-      name: "icon-discord.png",
-      content: ICON_DISCORD_BASE64,
-    },
-    {
       name: "icon-x.png",
       content: ICON_X_BASE64,
     },
     {
-      name: "icon-linkedin.png",
-      content: ICON_LINKEDIN_BASE64,
+      name: "icon-yt.png",
+      content: ICON_YT_BASE64,
     },
   ];
 

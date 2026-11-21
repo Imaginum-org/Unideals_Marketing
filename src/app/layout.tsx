@@ -7,10 +7,9 @@ const TITLE = "Unideals | Campus Marketplace to Buy & Sell with Students";
 const DESCRIPTION =
   "Unideals is the student-only campus marketplace. Buy and sell textbooks, gadgets, cycles and hostel essentials with verified students at your college. Zero commission. Join early access.";
 const SOCIALS = [
-  "https://instagram.com/unideals",
-  "https://x.com/unideals",
-  "https://linkedin.com/company/unideals",
-  "https://discord.gg/unideals",
+  "https://www.instagram.com/unidealsdotin/",
+  "https://x.com/unidealsdotin",
+  "https://www.youtube.com/@unidealsdotin",
 ];
 
 export const metadata: Metadata = {
@@ -47,8 +46,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    site: "@unideals",
-    creator: "@unideals",
+    site: "@unidealsdotin",
+    creator: "@unidealsdotin",
     title: TITLE,
     description: DESCRIPTION,
   },

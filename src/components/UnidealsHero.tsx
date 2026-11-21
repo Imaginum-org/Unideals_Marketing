@@ -543,7 +543,7 @@ export default function UnidealsHero() {
               display: none !important;
             }
             .unideals-timer-wrap {
-              margin: 0 0 clamp(28px, 4.5vh, 36px) 0 !important;
+              margin: 0 0 clamp(20px, 3vh, 26px) 0 !important;
               padding: 0 !important;
               width: 100% !important;
             }

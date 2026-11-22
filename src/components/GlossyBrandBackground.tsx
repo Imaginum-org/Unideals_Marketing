@@ -91,18 +91,18 @@ export default function GlossyBrandBackground({
 
         @media (max-width: 640px) {
           .unideals-bg-logo-left {
-            top: 25% !important;
-            left: -35px !important;
-            width: 195px !important;
-            height: 195px !important;
-            opacity: 0.9 !important;
+            top: 14% !important;
+            left: -65px !important;
+            width: 160px !important;
+            height: 160px !important;
+            opacity: 0.86 !important;
           }
           .unideals-bg-logo-right {
-            bottom: -45px !important;
-            right: -40px !important;
-            width: 180px !important;
-            height: 180px !important;
-            opacity: 0.88 !important;
+            bottom: -50px !important;
+            right: -45px !important;
+            width: 170px !important;
+            height: 170px !important;
+            opacity: 0.85 !important;
           }
         }
       `}</style>
@@ -187,8 +187,8 @@ export default function GlossyBrandBackground({
             objectFit: "contain",
             transform: "rotate(-18deg)",
             filter: isDark
-              ? "drop-shadow(0 18px 36px rgba(0, 0, 0, 0.55))"
-              : "drop-shadow(0 14px 28px rgba(0, 0, 0, 0.06))",
+              ? "drop-shadow(0 8px 18px rgba(0, 0, 0, 0.35))"
+              : "drop-shadow(0 6px 14px rgba(0, 0, 0, 0.03))",
             opacity: 0.95,
           }}
         />
@@ -209,8 +209,8 @@ export default function GlossyBrandBackground({
             objectFit: "contain",
             transform: "rotate(15deg)",
             filter: isDark
-              ? "drop-shadow(0 -14px 32px rgba(0, 0, 0, 0.5))"
-              : "drop-shadow(0 -12px 24px rgba(0, 0, 0, 0.05))",
+              ? "drop-shadow(0 -8px 18px rgba(0, 0, 0, 0.3))"
+              : "drop-shadow(0 -6px 12px rgba(0, 0, 0, 0.025))",
             opacity: 0.92,
           }}
         />

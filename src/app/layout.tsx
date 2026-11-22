@@ -8,6 +8,7 @@ const DESCRIPTION =
   "Unideals is the student-only campus marketplace. Buy and sell textbooks, gadgets, cycles and hostel essentials with verified students at your college. Zero commission. Join early access.";
 const SOCIALS = [
   "https://www.instagram.com/unidealsdotin/",
+  "https://discord.com/invite/j7Zc7e8cD",
   "https://x.com/unidealsdotin",
   "https://www.youtube.com/@unidealsdotin",
 ];

@@ -17,6 +17,7 @@ import type { IconHandle } from "@animateicons/react";
 import GlossyBrandBackground from "./GlossyBrandBackground";
 import AnimatedCountdown from "./AnimatedCountdown";
 import SubscribeBox from "./SubscribeBox";
+import CampusFeaturesSection from "./CampusFeaturesSection";
 
 // ── Design Tokens ─────────────────────────────────────────────────────────────
 const ICON_COLOR = "#3838EC";
@@ -342,7 +343,7 @@ export default function UnidealsHero() {
       style={{
         position: "relative",
         minHeight: "100vh",
-        width: "100vw",
+        width: "100%",
         overflowX: "hidden",
         transition: "background 0.4s ease",
       }}
@@ -379,9 +380,7 @@ export default function UnidealsHero() {
               width: "auto",
               display: "block",
               objectFit: "contain",
-              filter: isDark
-                ? "drop-shadow(0 0 10px rgba(110, 110, 244, 0.75)) brightness(1.15)"
-                : "drop-shadow(0 2px 8px rgba(16, 7, 43, 0.12))",
+              filter: "none",
               transition: "filter 0.3s ease",
             }}
           />
@@ -633,7 +632,38 @@ export default function UnidealsHero() {
 
         {/* 3. EMAIL SUBSCRIBE BOX: below timer */}
         <SubscribeBox isDark={isDark} />
+
+        {/* Scroll indicator to Features Section */}
+        <a
+          href="#campus-features"
+          onClick={(e) => {
+            e.preventDefault();
+            document.getElementById("campus-features")?.scrollIntoView({ behavior: "smooth" });
+          }}
+          aria-label="Scroll to campus features"
+          style={{
+            marginTop: "38px",
+            display: "inline-flex",
+            alignItems: "center",
+            gap: "8px",
+            fontSize: "0.82rem",
+            fontWeight: 600,
+            fontFamily: "'Figtree', sans-serif",
+            color: isDark ? "rgba(255, 255, 255, 0.45)" : "#736f8d",
+            textDecoration: "none",
+            cursor: "pointer",
+            transition: "color 0.2s ease",
+          }}
+        >
+          <span>Explore Features</span>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M12 5v14M19 12l-7 7-7-7" />
+          </svg>
+        </a>
       </main>
+
+      {/* 4. EXPANDABLE CAMPUS FEATURES SECTION */}
+      <CampusFeaturesSection isDark={isDark} />
     </div>
   );
 }

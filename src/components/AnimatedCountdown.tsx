@@ -179,8 +179,8 @@ function CountdownUnit({
           ? "1px solid rgba(255, 255, 255, 0.08)"
           : "1px solid rgba(16, 7, 43, 0.07)",
         boxShadow: isDark
-          ? "0 4px 18px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.08)"
-          : "0 4px 14px rgba(16, 7, 43, 0.04), inset 0 1px 0 #ffffff",
+          ? "0 2px 10px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.06)"
+          : "0 2px 8px rgba(16, 7, 43, 0.025), inset 0 1px 0 #ffffff",
         overflow: "hidden",
         userSelect: "none",
         transition: "all 0.25s ease",
@@ -314,8 +314,8 @@ export function AnimatedCountdown({
         backdropFilter: "blur(20px)",
         WebkitBackdropFilter: "blur(20px)",
         boxShadow: isDark
-          ? "0 20px 48px -12px rgba(0, 0, 0, 0.7), 0 1px 0 rgba(255, 255, 255, 0.06)"
-          : "0 4px 6px -1px rgba(0, 0, 0, 0.02), 0 20px 40px -12px rgba(0, 0, 0, 0.06)",
+          ? "0 10px 28px -10px rgba(0, 0, 0, 0.45), 0 1px 0 rgba(255, 255, 255, 0.05)"
+          : "0 2px 4px rgba(0, 0, 0, 0.015), 0 10px 24px -10px rgba(0, 0, 0, 0.04)",
         transition: "all 0.3s ease",
       }}
     >

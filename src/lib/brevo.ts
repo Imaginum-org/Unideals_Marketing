@@ -245,7 +245,7 @@ export async function addContactAndSendWelcome({
   const listId = process.env.BREVO_LIST_ID
     ? parseInt(process.env.BREVO_LIST_ID, 10)
     : 5;
-  const senderEmail = process.env.BREVO_SENDER_EMAIL || "anuraglife2020@gmail.com";
+  const senderEmail = process.env.BREVO_SENDER_EMAIL || "hello@unideals.in";
   const senderName = process.env.BREVO_SENDER_NAME || "Unideals";
 
   // If API key is not yet set, simulate success gracefully

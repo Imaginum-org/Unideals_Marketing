@@ -174,6 +174,7 @@ export default function SubscribeBox({ isDark }: { isDark: boolean }) {
           flex: 1;
           min-width: 0;
           width: 100%;
+          height: 44px;
         }
 
         .unideals-sub-btn {
@@ -200,11 +201,12 @@ export default function SubscribeBox({ isDark }: { isDark: boolean }) {
         }
 
         /* ── Mobile Viewports: Vertical Stack for Input & Action Button ── */
-        @media (max-width: 520px) {
+        @media (max-width: 640px) {
           .unideals-sub-wrap {
             margin-top: 0 !important;
             margin-bottom: 4px !important;
             padding: 0 4px !important;
+            max-width: 100% !important;
           }
 
           /* When NOT joined, unwrap into a clean vertical stack */
@@ -217,52 +219,69 @@ export default function SubscribeBox({ isDark }: { isDark: boolean }) {
             padding: 0 !important;
             min-height: auto !important;
             overflow: visible !important;
+            width: 100% !important;
           }
 
           .unideals-sub-form.is-not-joined .unideals-form-inner {
+            display: flex !important;
             flex-direction: column !important;
-            gap: 10px !important;
+            gap: 12px !important;
             width: 100% !important;
           }
 
-          /* Email input gets its own dedicated full-width pill */
+          /* Email input gets its own dedicated full-height pill that NEVER shrinks */
           .unideals-sub-form.is-not-joined .unideals-input-pill {
+            display: flex !important;
+            align-items: center !important;
             width: 100% !important;
             height: 52px !important;
+            min-height: 52px !important;
+            max-height: 52px !important;
+            flex: none !important;
+            flex-shrink: 0 !important;
             border-radius: 9999px !important;
             background: ${isDark ? "#141416" : "#ffffff"} !important;
             border: 1px solid ${
-              isDark ? "rgba(255, 255, 255, 0.09)" : "#e2e8f0"
+              isDark ? "rgba(255, 255, 255, 0.12)" : "#e2e8f0"
             } !important;
             box-shadow: ${
               isDark
-                ? "0 2px 6px rgba(0, 0, 0, 0.3), 0 6px 16px -4px rgba(0, 0, 0, 0.4)"
-                : "0 1px 2px rgba(0, 0, 0, 0.03), 0 4px 12px -3px rgba(0, 0, 0, 0.04)"
+                ? "0 2px 8px rgba(0, 0, 0, 0.35)"
+                : "0 1px 3px rgba(0, 0, 0, 0.04), 0 4px 12px -2px rgba(0, 0, 0, 0.05)"
             } !important;
-            padding: 0 16px !important;
+            padding: 0 18px !important;
             box-sizing: border-box !important;
             transition: border-color 0.2s ease, box-shadow 0.2s ease !important;
           }
 
           .unideals-sub-form.is-not-joined .unideals-input-pill:focus-within {
             border-color: #3838EC !important;
-            box-shadow: 0 0 0 3px rgba(56, 56, 236, 0.15) !important;
+            box-shadow: 0 0 0 3px rgba(56, 56, 236, 0.18) !important;
           }
 
-          .unideals-sub-input {
+          .unideals-sub-form.is-not-joined .unideals-input-pill .unideals-sub-input {
+            height: 100% !important;
+            min-height: 48px !important;
             font-size: 1rem !important; /* 16px prevents iOS Safari automatic zoom on focus */
+            line-height: 48px !important;
           }
 
-          /* "Get Early Access" becomes a tap-friendly full-width action button */
+          /* "Get Early Access" button matching the exact 52px height of the input */
           .unideals-sub-form.is-not-joined .unideals-sub-btn {
             width: 100% !important;
-            height: 48px !important;
+            height: 52px !important;
+            min-height: 52px !important;
+            max-height: 52px !important;
+            flex: none !important;
+            flex-shrink: 0 !important;
             border-radius: 9999px !important;
-            font-size: 0.95rem !important;
+            font-size: 0.98rem !important;
+            font-weight: 700 !important;
             display: flex !important;
             align-items: center !important;
             justify-content: center !important;
             padding: 0 !important;
+            box-shadow: 0 4px 14px rgba(56, 56, 236, 0.3) !important;
           }
 
           /* When joined, keep the compact horizontal confirmed pill */
@@ -593,6 +612,7 @@ export default function SubscribeBox({ isDark }: { isDark: boolean }) {
                     color: isDark ? "#ffffff" : "#10072B",
                     minWidth: 0,
                     width: "100%",
+                    height: "100%",
                   }}
                 />
               </div>
